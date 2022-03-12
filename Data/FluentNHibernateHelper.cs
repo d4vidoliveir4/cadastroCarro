@@ -9,7 +9,7 @@ namespace Data.NHibernate
     {
         public static ISession OpenSession()
         {
-            string connectionString = "Server=localhost\\SQLEXPRESS;Database=dbCAdastroCarros;Trusted_Connection=True;";
+            string connectionString = "Server=localhost\\SQLEXPRESS;Database=dbCadastroCarros;Trusted_Connection=True;";
 
             ISessionFactory sessionFactory = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2012.ConnectionString(connectionString).ShowSql()
