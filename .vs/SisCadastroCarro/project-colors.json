@@ -1,0 +1,46 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "06a3cf5f-1287-4503-b833-e370d4a284ae": {
+      "ProjectGuid": "06a3cf5f-1287-4503-b833-e370d4a284ae",
+      "DisplayName": "Aplicacao",
+      "ColorIndex": 0
+    },
+    "810a7ddc-7285-4ae5-ab5c-87cb5a3f77a4": {
+      "ProjectGuid": "810a7ddc-7285-4ae5-ab5c-87cb5a3f77a4",
+      "DisplayName": "Data",
+      "ColorIndex": 1
+    },
+    "0cad7c13-c63d-4110-bf85-500fd0b8d388": {
+      "ProjectGuid": "0cad7c13-c63d-4110-bf85-500fd0b8d388",
+      "DisplayName": "Dominio",
+      "ColorIndex": 2
+    },
+    "d2ac791f-90b1-4308-bc51-b22576a9ec56": {
+      "ProjectGuid": "d2ac791f-90b1-4308-bc51-b22576a9ec56",
+      "DisplayName": "API",
+      "ColorIndex": 3
+    },
+    "72779be0-710a-49b5-8cd3-f0065b077a54": {
+      "ProjectGuid": "72779be0-710a-49b5-8cd3-f0065b077a54",
+      "DisplayName": "Aplicacao",
+      "ColorIndex": 4
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Arquivos Diversos",
+      "ColorIndex": -1
+    },
+    "f43e92e4-8ec8-40df-bb77-a9a7c5d438f7": {
+      "ProjectGuid": "f43e92e4-8ec8-40df-bb77-a9a7c5d438f7",
+      "DisplayName": "AplicacaoPrincipal",
+      "ColorIndex": 5
+    },
+    "3efbee78-a029-4288-b7ac-b91484d70775": {
+      "ProjectGuid": "3efbee78-a029-4288-b7ac-b91484d70775",
+      "DisplayName": "CadastroCarros",
+      "ColorIndex": 6
+    }
+  },
+  "NextColorIndex": 7
+}

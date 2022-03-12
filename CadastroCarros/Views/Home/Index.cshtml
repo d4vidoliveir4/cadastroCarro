@@ -1,0 +1,86 @@
+﻿@using Dominio.Entidades
+@model IList<Carro>
+@{
+    ViewBag.Title = "Carro";
+    var lista = Model;
+}
+<div id="corpoPrincipal">
+    <div>
+        @using (Html.BeginForm("Alterar", "Home", FormMethod.Post, new { id = "lista" }))
+        {
+            <div style = "width:100%">
+                <div class="botoes">
+                    <input type="button" value="Incluir" class="btnPadrao" id="incluir" />
+                    <input type="button" value="Editar" class="btnPadrao" id="editar" />
+                    <input type="button" value="Excluir" class="btnPadrao" id="excluir" />
+                </div>
+                <div style = "width:100%">
+                    <div class="container">
+                        <div class="row">
+
+                            <div style = "width:100%">
+                                                                      
+                                    <div class="panel panel-default panel-table">
+
+                                    <div class="panel-body">
+                                        <table id="tabelaCarros" class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th style="display:none;">Código</th>
+                                                    <th>Placa</th>
+                                                    <th>Modelo</th>
+                                                    <th>Montadora</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var financeiro in lista)
+                                                {
+                                                    <tr>
+                                                        <td id="id" style="display:none;">@financeiro.Id</td>
+                                                        <td>@financeiro.Placa</td>
+                                                        <td>@financeiro.Modelo</td>
+                                                        <td>@(financeiro.Montadora)</td>
+                                                    </tr>
+                                                }   
+                                                                                     
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @Html.Hidden("Id")                
+            </div>
+        }
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $("#incluir").click(function () {
+           location.replace('@Url.Action("Editar", "Home")');
+        });
+        $("#editar").click(function () {
+           location.replace('@Url.Action("Editar", "Home")' + '?id=' + $("#Id").val());
+        }); 
+        $('#tabelaCarros tbody tr').dblclick(function () {
+           location.replace('@Url.Action("Editar", "Home")' + '?id=' + $("#Id").val());
+        });
+        $("#excluir").click(function () {
+           location.replace('@Url.Action("Excluir", "Home")' + '?id=' + $("#Id").val());
+        });
+
+        $('#tabelaCarros tbody tr').click(function () {
+            $(this).addClass('ativo').siblings().removeClass('ativo');
+            $("#Id").val($(this).children("td")[0].innerText)
+        });       
+       
+    </script>
+}
+
+
+

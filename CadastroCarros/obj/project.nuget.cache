@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "HzW761ffy5w7Ouzi45NjUYp3p5/QLae2GKQohxh/wpjAA1xjkWm59pXkqO75FGgSsG4EnmJkUgDz0xIXbdYqHA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\davio\\Desktop\\blueFleetProcessoSeletivo\\CadastroCarros\\CadastroCarros.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\davio\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\davio\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
+  ],
+  "logs": []
+}
