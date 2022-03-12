@@ -17,6 +17,7 @@ namespace CadastroCarros.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        static HttpClient client = new HttpClient();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -25,25 +26,26 @@ namespace CadastroCarros.Controllers
 
         public IActionResult Index()
         {
-            var listaCarros = new Home().Listar();
+            var listaCarros = Home.Listar();
             return View(listaCarros);
         }
 
         public IActionResult Salvar(Carro carro)
         {
-            var retorno = new Home().SalvarEntidade(carro);
+            Home.SalvarEntidade(carro);
+            
             return RedirectToAction("Index");
         }
         
         public IActionResult Excluir(int id)
         {
-            var retorno = new Home().DeletarEntidade(id);
+            Home.DeletarEntidade(id);
             return RedirectToAction("Index");
         }
 
         public IActionResult Editar(int id)
         {
-            Carro carro = new Home().ObterCarro(id);
+            var carro = Home.ObterCarro(id);
 
             return View("Editar", carro);
         }

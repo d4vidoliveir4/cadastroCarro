@@ -10,31 +10,29 @@ using System.Threading.Tasks;
 
 namespace CadastroCarros.Models
 {
-    public class Home
+    public static class Home
     {
         static HttpClient client = new HttpClient();
 
-        public async Task<Uri> SalvarEntidade(Carro carro)
+        public static void SalvarEntidade(Carro carro)
         {
             var myContent = JsonConvert.SerializeObject(carro);
             var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            HttpResponseMessage response = await client.PostAsync(
+            var response = client.PostAsync(
                 "http://localhost:5000/api/carros", byteContent);
-            response.EnsureSuccessStatusCode();
-
-            return response.Headers.Location;
+            response.Wait();
         }
 
-        public async Task<HttpStatusCode> DeletarEntidade(int id)
+        public static void DeletarEntidade(int id)
         {
-            HttpResponseMessage response = await client.DeleteAsync("http://localhost:5000/api/carros/" + id);
-            return response.StatusCode;
+            var response =  client.DeleteAsync("http://localhost:5000/api/carros/" + id);
+            response.Wait();
         }
 
-        public Carro ObterCarro(int id)
+        public static Carro ObterCarro(int id)
         {
             var response = client.GetAsync("http://localhost:5000/api/carros/" + id);
             response.Wait();
@@ -47,7 +45,7 @@ namespace CadastroCarros.Models
         }
 
 
-        public List<Carro> Listar()
+        public static List<Carro> Listar()
         {
             var response = client.GetAsync("http://localhost:5000/api/carros");
             response.Wait();
