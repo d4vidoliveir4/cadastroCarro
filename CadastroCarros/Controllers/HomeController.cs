@@ -2,22 +2,13 @@
 using Dominio.Entidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
 
 namespace CadastroCarros.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        static HttpClient client = new HttpClient();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -26,28 +17,25 @@ namespace CadastroCarros.Controllers
 
         public IActionResult Index()
         {
-            var listaCarros = Home.Listar();
-            return View(listaCarros);
+            return View(new Home());
         }
 
         public IActionResult Salvar(Carro carro)
         {
-            Home.SalvarEntidade(carro);
+            new Home().SalvarEntidade(carro);
             
             return RedirectToAction("Index");
         }
         
         public IActionResult Excluir(int id)
         {
-            Home.DeletarEntidade(id);
+            new Home().DeletarEntidade(id);
             return RedirectToAction("Index");
         }
 
         public IActionResult Editar(int id)
         {
-            var carro = Home.ObterCarro(id);
-
-            return View("Editar", carro);
+            return View("Editar", new Home(id));
         }
 
         public IActionResult Privacy()

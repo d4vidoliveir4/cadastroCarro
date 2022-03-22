@@ -1,0 +1,10 @@
+
+D4vidOliveir4/cript
+D4vidOliveir4/ban
+*.dll
+*.pdb
+*.cache
+*.dll
+*Debug*
+*Release*
+*.pubxml*

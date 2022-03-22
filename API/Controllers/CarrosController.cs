@@ -1,12 +1,8 @@
-﻿using Data.NHibernate;
-using Data.Repositorios;
+﻿using Data.Repositorios;
 using Dominio.Entidades;
 using Dominio.Repositorios;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace API.Controllers
 {
@@ -14,19 +10,14 @@ namespace API.Controllers
     [ApiController]
     public class CarrosController : ControllerBase
     {
-        public ICarroRepositorio CarroRepositorio { get; set; }
+        public IRepositorio<Carro> CarroRepositorio => new CarroRepositorio();
 
         // GET: api/<ValuesController>
         [HttpGet]
         public IEnumerable<Carro> ObterTodos()
         {
-            var session = FluentNHibernateHelper.OpenSession();
-
-            CarroRepositorio = new CarroRepositorio(session);
-
             var retorno = CarroRepositorio.ObterTodos();
-
-            session.Close();
+            CarroRepositorio.FecharSessao();
 
             return retorno;
         }
@@ -35,13 +26,8 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public Carro Obter(int id)
         {
-            var session = FluentNHibernateHelper.OpenSession();
-
-            CarroRepositorio = new CarroRepositorio(session);
-
             var retorno = CarroRepositorio.ObterPor(id);
-
-            session.Close();
+            CarroRepositorio.FecharSessao();
 
             return retorno;
         }
@@ -52,14 +38,11 @@ namespace API.Controllers
         {
             try
             {
-                var session = FluentNHibernateHelper.OpenSession();
-                session.SaveOrUpdate(carro);
-                session.Flush();
-                session.Close();
-
+                CarroRepositorio.Salvar(carro);
+                CarroRepositorio.FecharSessao();
                 return true;
             }
-            catch (Exception ex)
+            catch 
             {
                 return false;
             }
@@ -71,16 +54,10 @@ namespace API.Controllers
         {
             try
             {
-                var session = FluentNHibernateHelper.OpenSession();
-                CarroRepositorio = new CarroRepositorio(session);
-                var reserva = CarroRepositorio.ObterPor(id);
-                session.Delete(reserva);
-                session.Flush();
-                session.Close();
-
+                CarroRepositorio.Excluir(id);
                 return true;
             }
-            catch (Exception ex)
+            catch 
             {
                 return false;
             }

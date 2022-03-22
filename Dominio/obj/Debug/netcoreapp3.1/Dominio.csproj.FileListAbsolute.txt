@@ -20,7 +20,6 @@ C:\Users\davio\Desktop\site\Dominio\bin\Debug\netcoreapp3.1\Dominio.pdb
 C:\Users\davio\Desktop\blueFleetProcessoSeletivo\Dominio\bin\Debug\netcoreapp3.1\Dominio.deps.json
 C:\Users\davio\Desktop\blueFleetProcessoSeletivo\Dominio\bin\Debug\netcoreapp3.1\Dominio.dll
 C:\Users\davio\Desktop\blueFleetProcessoSeletivo\Dominio\bin\Debug\netcoreapp3.1\Dominio.pdb
-C:\Users\davio\Desktop\blueFleetProcessoSeletivo\Dominio\obj\Debug\netcoreapp3.1\Dominio.csproj.AssemblyReference.cache
 C:\Users\davio\Desktop\blueFleetProcessoSeletivo\Dominio\obj\Debug\netcoreapp3.1\Dominio.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\davio\Desktop\blueFleetProcessoSeletivo\Dominio\obj\Debug\netcoreapp3.1\Dominio.AssemblyInfoInputs.cache
 C:\Users\davio\Desktop\blueFleetProcessoSeletivo\Dominio\obj\Debug\netcoreapp3.1\Dominio.AssemblyInfo.cs

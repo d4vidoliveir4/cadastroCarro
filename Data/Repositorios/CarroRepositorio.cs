@@ -1,4 +1,5 @@
-﻿using Dominio.Entidades;
+﻿using Data.NHibernate;
+using Dominio.Entidades;
 using Dominio.Repositorios;
 using NHibernate;
 using System.Collections.Generic;
@@ -6,13 +7,13 @@ using System.Linq;
 
 namespace Data.Repositorios
 {
-    public class CarroRepositorio : ICarroRepositorio
+    public class CarroRepositorio : IRepositorio<Carro>
     {
         private readonly ISession _session;
 
-        public CarroRepositorio(ISession session)
+        public CarroRepositorio()
         {
-            _session = session;
+            _session = FluentNHibernateHelper.OpenSession();
         }
         public void Salvar(Carro carro)
         {
@@ -22,7 +23,7 @@ namespace Data.Repositorios
                 tran.Commit();
             }
         }
-        public void Excluir(Carro carro)
+        private void Excluir(Carro carro)
         {
             using (var tran = _session.BeginTransaction())
             {
@@ -41,5 +42,15 @@ namespace Data.Repositorios
             return _session.Query<Carro>().ToList();
         }
 
+        public void FecharSessao()
+        {
+            _session.Close();
+        }
+
+        public void Excluir(int id)
+        {
+            var entidade = ObterPor(id);
+            Excluir(entidade);
+        }
     }
 }

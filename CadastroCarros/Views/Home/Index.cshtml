@@ -1,8 +1,8 @@
 ﻿@using Dominio.Entidades
-@model IList<Carro>
+@model Home
 @{
     ViewBag.Title = "Carro";
-    var lista = Model;
+    var lista = Model.Listar();
 }
 <div id="corpoPrincipal">
     <div>
